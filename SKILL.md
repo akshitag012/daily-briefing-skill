@@ -168,10 +168,10 @@ Color coding for category badges:
 
 This skill generates **two separate emails** per run:
 
-#### Email 1: Full Briefing → aksh.ganesh@gmail.com
+#### Email 1: Full Briefing → your-email@gmail.com
 Contains everything: Newsletter Digest (Part 1) + HealthTech Deep-Dive (Part 2). Subject: `Daily Briefing — [Date]`
 
-#### Email 2: HealthTech-Only Briefing → atishay012@gmail.com, meenaganesh031@gmail.com
+#### Email 2: HealthTech-Only Briefing → teammate1@gmail.com, teammate2@gmail.com
 Contains **only** the HealthTech Deep-Dive (Part 2: Sections A, B, C). No newsletter digest. This is a standalone email with its own header/branding:
 - Subject: `HealthTech Daily — [Date]`
 - Header: "HealthTech Daily" instead of "Your Daily Briefing"
@@ -188,7 +188,7 @@ Save each email's HTML to a temp file, then send it directly using the Gmail API
 ```bash
 /Users/akshita/skills/skills/daily-briefing/scripts/venv/bin/python \
     /Users/akshita/skills/skills/daily-briefing/scripts/send_email.py \
-    --to "aksh.ganesh@gmail.com" \
+    --to "your-email@gmail.com" \
     --subject "Daily Briefing — [Date]" \
     --html /tmp/daily-briefing-YYYY-MM-DD-full.html
 ```
@@ -197,7 +197,7 @@ Save each email's HTML to a temp file, then send it directly using the Gmail API
 ```bash
 /Users/akshita/skills/skills/daily-briefing/scripts/venv/bin/python \
     /Users/akshita/skills/skills/daily-briefing/scripts/send_email.py \
-    --to "atishay012@gmail.com, meenaganesh031@gmail.com" \
+    --to "teammate1@gmail.com, teammate2@gmail.com" \
     --subject "HealthTech Daily — [Date]" \
     --html /tmp/daily-briefing-YYYY-MM-DD-healthtech.html
 ```

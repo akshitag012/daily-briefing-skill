@@ -5,7 +5,7 @@ One-time setup to enable the daily briefing skill to send emails directly (not j
 ## Step 1: Create a Google Cloud Project
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Sign in as `aksh.ganesh@gmail.com`
+2. Sign in as `your-email@gmail.com`
 3. Click the project dropdown at the top → **New Project**
 4. Name: `daily-briefing-sender`
 5. Click **Create**, then select the new project
@@ -22,13 +22,13 @@ One-time setup to enable the daily briefing skill to send emails directly (not j
 2. Select **External** user type → **Create**
 3. Fill in:
    - App name: `Daily Briefing Sender`
-   - User support email: `aksh.ganesh@gmail.com`
-   - Developer contact: `aksh.ganesh@gmail.com`
+   - User support email: `your-email@gmail.com`
+   - Developer contact: `your-email@gmail.com`
 4. Click **Save and Continue**
 5. On Scopes page → **Add or Remove Scopes** → find and select:
    - `https://www.googleapis.com/auth/gmail.send`
 6. Click **Update** → **Save and Continue**
-7. On Test Users page → **Add Users** → add `aksh.ganesh@gmail.com`
+7. On Test Users page → **Add Users** → add `your-email@gmail.com`
 8. Click **Save and Continue** → **Back to Dashboard**
 
 **Important:** Click **Publish App** on the OAuth consent screen. This prevents the refresh token from expiring after 7 days. Since the app only uses `gmail.send` scope and only you use it, Google won't require a security review.
@@ -53,7 +53,7 @@ Run this test command in your terminal:
 ```bash
 /Users/akshita/skills/skills/daily-briefing/scripts/venv/bin/python \
     /Users/akshita/skills/skills/daily-briefing/scripts/send_email.py \
-    --to "aksh.ganesh@gmail.com" \
+    --to "your-email@gmail.com" \
     --subject "Test - Gmail API Send" \
     --body "This is a test email. If you see this, auto-send is working!"
 ```
