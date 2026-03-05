@@ -55,7 +55,7 @@ Group the summaries by category in the final output.
 
 ## Step 3: HealthTech Deep-Dive
 
-The healthtech section has three focused subsections. For each, run targeted web searches using the trusted sources and focus areas below. Go for substance — specific numbers, company names, deal sizes, policy details. Skip hospital IT, traditional healthcare operations, and generic "AI will change everything" fluff.
+The healthtech section has four focused subsections. For each, run targeted web searches using the trusted sources and focus areas below. Go for substance — specific numbers, company names, deal sizes, policy details. Skip hospital IT, traditional healthcare operations, and generic "AI will change everything" fluff.
 
 ### Trusted Sources (prioritize results from these domains)
 
@@ -90,7 +90,28 @@ What to skip: Hospital EHR systems, enterprise health IT, insurance tech
 
 Capture 3-5 stories. For each: headline, **direct link to the specific article page** (not the site homepage), 2-sentence summary, and a one-line "Bahaar relevance" note explaining why it matters for community health work.
 
-### Subsection B: HealthTech Startup Deals
+### Subsection B: Home Healthcare & Supply-Side Marketplace (POTIA lens)
+
+Context: The user works with POTIA Medical, a home healthcare company in India. The core challenge is supply-side engagement — recruiting, training, and retaining healthcare workers (nurses, attendants, physiotherapists) who are often from small towns and villages with limited formal education. POTIA operates as a marketplace connecting patients who need home care with these workers. The user wants to learn from how other marketplace companies (Swiggy, Uber, Urban Company, Snabbit, Porter) solve similar supply-side problems, as well as track home healthcare industry trends.
+
+Search queries (run 2-3):
+- `"home healthcare" OR "home care" India startup OR company OR funding` (current month)
+- `"Urban Company" OR "Swiggy" OR "Porter" OR "Snabbit" gig worker retention OR training OR supply side` (current month)
+- `"home healthcare" OR "home nursing" marketplace OR platform worker engagement` (current month)
+
+What to include:
+- Home healthcare companies in India and globally — funding, launches, expansions (e.g., Portea, Care24, Sukino, Nightingales, MediBuddy home care)
+- Supply-side marketplace strategies: how gig/service platforms recruit, train, retain, and engage blue-collar or semi-skilled workers
+- Worker training and upskilling programs — especially mobile-first, vernacular, or low-literacy approaches
+- Technology for field workforce management — apps, scheduling, quality monitoring, worker incentives
+- Regulatory changes affecting home healthcare in India
+- Global home healthcare trends that could apply to India
+
+What to skip: Hospital staffing, enterprise HR tech, B2B SaaS for large healthcare systems
+
+Capture 3-5 stories. For each: headline, **direct link to the specific article page** (not the site homepage), 2-sentence summary, and a one-line "POTIA relevance" note explaining why it matters for home healthcare supply-side operations.
+
+### Subsection C: HealthTech Startup Deals
 
 Search queries (run 2-3):
 - `site:yourstory.com OR site:inc42.com OR site:tracxn.com healthtech funding India` (current week/month)
@@ -106,7 +127,7 @@ What to include:
 
 Format: For each deal, capture company name, what they do, round size, key investors, region (India/US/Global), and a **direct link to the specific article** (not the site homepage). Aim for 3-5 deals per region.
 
-### Subsection C: Digital Health & HealthTech India
+### Subsection D: Digital Health & HealthTech India
 
 Broader trends, infrastructure, and notable company moves.
 
@@ -158,8 +179,9 @@ Color coding for category badges:
 3. **Newsletter Digest** (grouped by category):
    - Each item: [Category Badge] **Headline** (linked to Gmail message)
    - Summary paragraph
-4. **HealthTech Deep-Dive** (three subsections):
+4. **HealthTech Deep-Dive** (four subsections):
    - **AI in Public Health** (Bahaar lens) — community health, rural access, global examples. Each item includes a "Bahaar relevance" note.
+   - **Home Healthcare & Supply-Side Marketplace** (POTIA lens) — home care industry, gig worker engagement, marketplace strategies. Each item includes a "POTIA relevance" note.
    - **Startup Deals** — funding rounds, India vs US/Global, with deal sizes and investors
    - **Digital Health & HealthTech India** — trends, Eka Care, mental health, infrastructure
 5. **Footer**
@@ -172,10 +194,10 @@ This skill generates **two separate emails** per run:
 Contains everything: Newsletter Digest (Part 1) + HealthTech Deep-Dive (Part 2). Subject: `Daily Briefing — [Date]`
 
 #### Email 2: HealthTech-Only Briefing → teammate1@gmail.com, teammate2@gmail.com
-Contains **only** the HealthTech Deep-Dive (Part 2: Sections A, B, C). No newsletter digest. This is a standalone email with its own header/branding:
+Contains **only** the HealthTech Deep-Dive (Part 2: Sections A, B, C, D). No newsletter digest. This is a standalone email with its own header/branding:
 - Subject: `HealthTech Daily — [Date]`
 - Header: "HealthTech Daily" instead of "Your Daily Briefing"
-- Quick Stats: "Y healthtech stories across 3 sections" (no newsletter count)
+- Quick Stats: "Y healthtech stories across 4 sections" (no newsletter count)
 - Same design language as the full briefing but self-contained — should not look like a chopped excerpt
 
 Use the same inline CSS design system, section colors, and card styles for the healthtech email.
