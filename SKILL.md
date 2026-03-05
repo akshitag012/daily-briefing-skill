@@ -90,26 +90,27 @@ What to skip: Hospital EHR systems, enterprise health IT, insurance tech
 
 Capture 3-5 stories. For each: headline, **direct link to the specific article page** (not the site homepage), 2-sentence summary, and a one-line "Bahaar relevance" note explaining why it matters for community health work.
 
-### Subsection B: Home Healthcare & Supply-Side Marketplace (POTIA lens)
+### Subsection B: Home Healthcare & Supply-Side Marketplace (Portea lens)
 
-Context: The user works with POTIA Medical, a home healthcare company in India. The core challenge is supply-side engagement — recruiting, training, and retaining healthcare workers (nurses, attendants, physiotherapists) who are often from small towns and villages with limited formal education. POTIA operates as a marketplace connecting patients who need home care with these workers. The user wants to learn from how other marketplace companies (Swiggy, Uber, Urban Company, Snabbit, Porter) solve similar supply-side problems, as well as track home healthcare industry trends.
+Context: The user works with Portea Medical, India's largest home healthcare provider (founded 2013, 24-city network, 4,000+ staff including nurses, nursing assistants, physiotherapists, and trained attendants). Portea is IPO-bound (SEBI-approved, targeting Rs 1,000 crore). The core strategic challenge is supply-side economics — healthcare staffing is 60% of operational costs, and the workforce is predominantly women (71%) from small towns with limited formal education. Portea competes with a massive unorganized sector and needs to recruit, train, retain, and manage quality across diverse regions. The user wants to learn from how other service marketplace companies (Urban Company, Swiggy, Porter, Snabbit, Uber) solve similar supply-side challenges at scale.
 
 Search queries (run 2-3):
-- `"home healthcare" OR "home care" India startup OR company OR funding` (current month)
-- `"Urban Company" OR "Swiggy" OR "Porter" OR "Snabbit" gig worker retention OR training OR supply side` (current month)
-- `"home healthcare" OR "home nursing" marketplace OR platform worker engagement` (current month)
+- `"Portea" OR "home healthcare" OR "home care" India startup OR funding OR IPO` (current month)
+- `"Urban Company" OR "Swiggy" OR "Porter" gig worker retention OR training OR supply side India` (current month)
+- `"home healthcare" OR "home nursing" OR "caregiver" recruitment OR retention OR training marketplace` (current month)
 
 What to include:
-- Home healthcare companies in India and globally — funding, launches, expansions (e.g., Portea, Care24, Sukino, Nightingales, MediBuddy home care)
-- Supply-side marketplace strategies: how gig/service platforms recruit, train, retain, and engage blue-collar or semi-skilled workers
-- Worker training and upskilling programs — especially mobile-first, vernacular, or low-literacy approaches
-- Technology for field workforce management — apps, scheduling, quality monitoring, worker incentives
-- Regulatory changes affecting home healthcare in India
-- Global home healthcare trends that could apply to India
+- Portea Medical news directly — IPO updates, partnerships, expansions, leadership moves
+- Home healthcare competitors: Care24, Nightingales, Sukino, MediBuddy home care, Tribe Health — funding, launches, strategy
+- Supply-side marketplace playbooks: how service platforms (Urban Company, Swiggy, Porter, Snabbit, Uber, Practo) recruit, train, incentivize, and retain semi-skilled or blue-collar workers at scale
+- Caregiver training and upskilling: mobile-first, vernacular, low-literacy training platforms; nursing/attendant certification programs
+- Technology for field workforce: scheduling, route optimization, quality monitoring, worker apps, real-time feedback
+- Home healthcare regulation and policy in India (licensing, standards, insurance coverage for home care)
+- Global home healthcare trends relevant to India (US home health aide market, UK NHS home care, aging population economics)
 
-What to skip: Hospital staffing, enterprise HR tech, B2B SaaS for large healthcare systems
+What to skip: Hospital staffing agencies, enterprise HR SaaS, generic gig economy news not relevant to healthcare or service marketplaces
 
-Capture 3-5 stories. For each: headline, **direct link to the specific article page** (not the site homepage), 2-sentence summary, and a one-line "POTIA relevance" note explaining why it matters for home healthcare supply-side operations.
+Capture 3-5 stories. For each: headline, **direct link to the specific article page** (not the site homepage), 2-sentence summary, and a one-line "Portea relevance" note explaining why it matters for home healthcare supply-side operations and profitability.
 
 ### Subsection C: HealthTech Startup Deals
 
@@ -181,7 +182,7 @@ Color coding for category badges:
    - Summary paragraph
 4. **HealthTech Deep-Dive** (four subsections):
    - **AI in Public Health** (Bahaar lens) — community health, rural access, global examples. Each item includes a "Bahaar relevance" note.
-   - **Home Healthcare & Supply-Side Marketplace** (POTIA lens) — home care industry, gig worker engagement, marketplace strategies. Each item includes a "POTIA relevance" note.
+   - **Home Healthcare & Supply-Side Marketplace** (Portea lens) — home care industry, gig worker engagement, marketplace strategies. Each item includes a "Portea relevance" note.
    - **Startup Deals** — funding rounds, India vs US/Global, with deal sizes and investors
    - **Digital Health & HealthTech India** — trends, Eka Care, mental health, infrastructure
 5. **Footer**
