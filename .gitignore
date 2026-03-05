@@ -1,0 +1,5 @@
+scripts/credentials.json
+scripts/token.json
+scripts/venv/
+*.log
+.DS_Store
