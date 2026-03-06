@@ -57,6 +57,14 @@ Group the summaries by category in the final output.
 
 The healthtech section has four focused subsections. For each, run targeted web searches using the trusted sources and focus areas below. Go for substance — specific numbers, company names, deal sizes, policy details. Skip hospital IT, traditional healthcare operations, and generic "AI will change everything" fluff.
 
+### Freshness & Deduplication
+
+**Recency**: Only include articles published in the last 24-48 hours. Add the current year and "2026" or "March 2026" to search queries to bias toward recent results. If a search returns nothing from the last 48 hours, that's fine — include fewer stories or skip that subsection entirely. Do NOT pad with older articles just to fill space.
+
+**Dedup across runs**: Before composing the email, read the dedup log at `/Users/akshita/skills/skills/daily-briefing/data/sent-articles.log`. This file contains headlines and URLs from previous briefings. Do NOT include any article whose headline or URL already appears in this log. After sending, append all newly included articles (one per line, format: `YYYY-MM-DD | headline | URL`) to the log file. Create the file/directory if it doesn't exist.
+
+**Quality over quantity**: It's better to send 1-2 genuinely new, substantive stories per subsection than 5 stale or repeated ones. If a subsection has zero new stories, include a one-liner: "No new stories in the last 24 hours." — don't force it.
+
 ### Trusted Sources (prioritize results from these domains)
 
 **India**: YourStory, Inc42, Tracxn, ET HealthWorld, MedicalBuyer, Digital Health News (digitalhealthnews.com), APAC News Network
@@ -74,10 +82,10 @@ Always link to the **specific article page URL**, not the site's homepage or sec
 
 Context: The user works with Bahaar, a company focused on using AI to build community health access — early diagnostics, health knowledge delivery, and basic healthcare in rural/semi-urban India where access is limited.
 
-Search queries (run 2-3):
-- `site:yourstory.com OR site:inc42.com OR site:digitalhealthnews.com "community health" OR "public health" OR "rural health" AI India` (current week/month)
-- `"community health workers" OR "primary care" AI diagnostics rural` (current month)
-- `"public health AI" OR "community health AI" global examples` (current month)
+Search queries (run 2-3, always append current month+year e.g. "March 2026"):
+- `site:yourstory.com OR site:inc42.com OR site:digitalhealthnews.com "community health" OR "public health" OR "rural health" AI India 2026`
+- `"community health workers" OR "primary care" AI diagnostics rural 2026`
+- `"public health AI" OR "community health AI" global examples 2026`
 
 What to include:
 - AI tools for community health workers, frontline health, ASHA workers
@@ -94,10 +102,10 @@ Capture 3-5 stories. For each: headline, **direct link to the specific article p
 
 Context: The user works with Portea Medical, India's largest home healthcare provider (founded 2013, 24-city network, 4,000+ staff including nurses, nursing assistants, physiotherapists, and trained attendants). Portea is IPO-bound (SEBI-approved, targeting Rs 1,000 crore). The core strategic challenge is supply-side economics — healthcare staffing is 60% of operational costs, and the workforce is predominantly women (71%) from small towns with limited formal education. Portea competes with a massive unorganized sector and needs to recruit, train, retain, and manage quality across diverse regions. The user wants to learn from how other service marketplace companies (Urban Company, Swiggy, Porter, Snabbit, Uber) solve similar supply-side challenges at scale.
 
-Search queries (run 2-3):
-- `"Portea" OR "home healthcare" OR "home care" India startup OR funding OR IPO` (current month)
-- `"Urban Company" OR "Swiggy" OR "Porter" gig worker retention OR training OR supply side India` (current month)
-- `"home healthcare" OR "home nursing" OR "caregiver" recruitment OR retention OR training marketplace` (current month)
+Search queries (run 2-3, always append current month+year e.g. "March 2026"):
+- `"Portea" OR "home healthcare" OR "home care" India startup OR funding OR IPO 2026`
+- `"Urban Company" OR "Swiggy" OR "Porter" gig worker retention OR training OR supply side India 2026`
+- `"home healthcare" OR "home nursing" OR "caregiver" recruitment OR retention OR training marketplace 2026`
 
 What to include:
 - Portea Medical news directly — IPO updates, partnerships, expansions, leadership moves
@@ -114,10 +122,10 @@ Capture 3-5 stories. For each: headline, **direct link to the specific article p
 
 ### Subsection C: HealthTech Startup Deals
 
-Search queries (run 2-3):
-- `site:yourstory.com OR site:inc42.com OR site:tracxn.com healthtech funding India` (current week/month)
-- `site:statnews.com OR site:rockhealth.com OR site:fiercehealthcare.com healthtech funding OR "series A" OR "series B" OR acquisition` (current week/month)
-- `"digital health" OR healthtech startup funding round` (current week)
+Search queries (run 2-3, always append current month+year e.g. "March 2026"):
+- `site:yourstory.com OR site:inc42.com OR site:tracxn.com healthtech funding India 2026`
+- `site:statnews.com OR site:rockhealth.com OR site:fiercehealthcare.com healthtech funding OR "series A" OR "series B" OR acquisition 2026`
+- `"digital health" OR healthtech startup funding round 2026`
 
 What to include:
 - Seed, Series A/B/C rounds with deal sizes and investors
@@ -132,10 +140,10 @@ Format: For each deal, capture company name, what they do, round size, key inves
 
 Broader trends, infrastructure, and notable company moves.
 
-Search queries (run 2-3):
-- `"digital health India" OR "health tech India" OR "ABDM" trends` (current month)
-- `"Eka Care" OR "digital health India" startup launches partnerships` (current month)
-- `"mental health" startup OR app India OR US` (current month)
+Search queries (run 2-3, always append current month+year e.g. "March 2026"):
+- `"digital health India" OR "health tech India" OR "ABDM" trends 2026`
+- `"Eka Care" OR "digital health India" startup launches partnerships 2026`
+- `"mental health" startup OR app India OR US 2026`
 
 What to include:
 - Digital health infrastructure (ABDM, health IDs, interoperability)
