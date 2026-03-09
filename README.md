@@ -2,19 +2,19 @@
 
 A Claude Code skill that generates a personalized daily briefing by summarizing your email newsletters and curating healthtech news from the web — then sends it directly to your inbox.
 
-![Example Briefing](examples/preview.png)
-
 ## What It Does
 
 Every morning, this skill:
 
 1. **Fetches newsletters** from your Gmail (Substack, Morning Brew, beehiiv, etc.)
 2. **Summarizes each one** — covering all key topics, not just the headline
-3. **Curates healthtech news** from the web across 3 focused sections:
-   - AI in Public Health (with a community health lens)
+3. **Curates healthtech news** from the web across 4 focused sections:
+   - AI in Public Health (community health lens)
+   - Home Healthcare & Supply-Side Marketplace
    - HealthTech Startup Deals (India + US/Global)
    - Digital Health & HealthTech India
 4. **Sends formatted HTML emails** directly to your inbox via Gmail API
+5. **Deduplicates across runs** — tracks previously shared articles and themes so you never see the same story twice
 
 ## Two Emails Per Run
 
@@ -33,7 +33,7 @@ See what the output looks like:
 
 ### 1. Install the Skill
 
-Copy the `SKILL.md` file to your Claude Code skills directory:
+Copy the skill files to your Claude Code skills directory:
 
 ```bash
 mkdir -p ~/.claude/skills/daily-briefing
@@ -60,20 +60,27 @@ Then follow the instructions in [scripts/SETUP.md](scripts/SETUP.md) to configur
 
 ### 4. Schedule It (Optional)
 
-Set up a macOS LaunchAgent or cron job for automatic daily runs. See [references/scheduling.md](references/scheduling.md).
+For automatic daily runs, the recommended approach is a **wrapper script** that reads SKILL.md and passes it directly to Claude (since Claude can't discover custom skills in headless mode):
+
+```bash
+# scripts/run-briefing.sh does this automatically
+chmod +x scripts/run-briefing.sh
+```
+
+Then set up a macOS LaunchAgent or cron job. See [references/scheduling.md](references/scheduling.md).
 
 ## Usage
 
-Trigger the skill manually in Claude Code:
+Run the skill interactively in Claude Code:
 
 ```
 /daily-briefing
 ```
 
-Or run it headlessly:
+Or run it headlessly via the wrapper script:
 
 ```bash
-claude -p "Run my /daily-briefing skill" --allowedTools "mcp__claude_ai_Gmail__*,WebSearch,Bash"
+./scripts/run-briefing.sh
 ```
 
 ## Customization
@@ -82,9 +89,17 @@ The skill is fully customizable via `SKILL.md`. You can:
 
 - **Change newsletter sources** — edit the Gmail search queries in Step 1
 - **Change healthtech focus areas** — edit the search queries and trusted sources in Step 3
+- **Add/remove sections** — the healthtech deep-dive has 4 subsections you can modify
 - **Change recipients** — edit the email addresses in Step 4
-- **Add/remove sections** — the healthtech deep-dive has 3 subsections you can modify
 - **Change the design** — edit the inline CSS design system in Step 4
+
+## Freshness & Dedup
+
+The skill includes built-in protections against stale or repeated content:
+
+- **Two-pass date verification** — parses dates from URLs, then uses WebFetch to verify ambiguous publication dates. Rejects anything older than 48 hours.
+- **URL + headline dedup** — tracks all shared articles in `data/sent-articles.log` to prevent repeats across runs.
+- **Thematic dedup** — tracks topic themes so you don't see "Budget 2026 healthcare analysis" three days in a row from different publications.
 
 ## How It Works
 
@@ -98,8 +113,10 @@ The skill is a single `SKILL.md` file that instructs Claude Code to:
 1. Search Gmail for newsletters from the last 24 hours
 2. Read and summarize each newsletter (covering all topics, not just the lead)
 3. Run web searches for healthtech news across trusted sources
-4. Compose two HTML emails with inline CSS (Gmail-safe)
-5. Send them via the Gmail API send script
+4. Verify article freshness (URL date parsing + WebFetch)
+5. Check dedup log to skip previously shared articles and themes
+6. Compose two HTML emails with inline CSS (Gmail-safe)
+7. Send them via the Gmail API send script
 
 ## Project Structure
 
@@ -108,8 +125,11 @@ daily-briefing-skill/
 ├── SKILL.md                    # The skill definition (the brain)
 ├── scripts/
 │   ├── send_email.py           # Gmail API auto-send script
+│   ├── run-briefing.sh         # Wrapper for headless/scheduled runs
 │   ├── SETUP.md                # OAuth setup instructions
 │   └── .gitignore              # Excludes credentials & venv
+├── data/
+│   └── sent-articles.log       # Dedup log (auto-created on first run)
 ├── references/
 │   └── scheduling.md           # Cron / LaunchAgent setup
 ├── examples/

@@ -59,9 +59,15 @@ The healthtech section has four focused subsections. For each, run targeted web 
 
 ### Freshness & Deduplication
 
-**Recency**: Only include articles published in the last 24-48 hours. Add the current year and "2026" or "March 2026" to search queries to bias toward recent results. If a search returns nothing from the last 48 hours, that's fine — include fewer stories or skip that subsection entirely. Do NOT pad with older articles just to fill space.
+**IMPORTANT: The WebSearch tool has NO date filtering capability.** Appending dates to queries only biases keyword matching — it does NOT filter by publication date. A February article mentioning "2026" will rank just as well as one from yesterday. You MUST verify dates independently using the two-pass process below.
 
-**Dedup across runs**: Before composing the email, read the dedup log at `/Users/akshita/skills/skills/daily-briefing/data/sent-articles.log`. This file contains headlines and URLs from previous briefings. Do NOT include any article whose headline or URL already appears in this log. After sending, append all newly included articles (one per line, format: `YYYY-MM-DD | headline | URL`) to the log file. Create the file/directory if it doesn't exist.
+**Pass 1 — URL date parsing (fast, do first):** After each WebSearch returns results, parse the URL paths for embedded dates. Most news sites use patterns like `/2026/03/08/`, `/2026-03-08/`, or `/news-release/2026/02/25/`. Reject any article whose URL-embedded date is more than 48 hours before today's date. This is free and catches the majority of stale content.
+
+**Pass 2 — WebFetch date verification (for ambiguous URLs):** For articles where the URL does NOT contain a clear date (e.g., `digitalhealthnews.com/the-next-five-years-of-...`), use WebFetch with the prompt: `"What is the exact publication date of this article? Return only the date in YYYY-MM-DD format."` Reject anything older than 48 hours. To save time, batch these — skip verification if you already have enough fresh articles for that subsection.
+
+**Dedup across runs (URL + headline matching):** Before composing the email, read the dedup log at `./data/sent-articles.log`. This file contains headlines and URLs from previous briefings. Do NOT include any article whose headline or URL already appears in this log. After sending, append all newly included articles (one per line, format: `YYYY-MM-DD | headline | URL | theme-tag`) to the log file. The theme-tag should be a short hyphenated label like `ABDM-milestone`, `Budget-2026-healthcare`, `Portea-IPO`, `caregiver-shortage`, `gig-worker-regulation`. Create the file/directory if it doesn't exist.
+
+**Thematic dedup (avoid repeated topics across days):** The dedup log also tracks themes. Before including an article, scan the last 5 days of the log. If the same *topic* was already covered (e.g., "ABDM milestone", "Budget 2026 healthcare analysis", "caregiver shortage"), skip it UNLESS there is a materially new development (new numbers, new policy, new company action). A different article about the same theme is still a repeat. When in doubt, skip — the reader doesn't want to see "Budget 2026 healthcare implications" three days in a row from different publications.
 
 **Quality over quantity**: It's better to send 1-2 genuinely new, substantive stories per subsection than 5 stale or repeated ones. If a subsection has zero new stories, include a one-liner: "No new stories in the last 24 hours." — don't force it.
 
@@ -217,8 +223,8 @@ Save each email's HTML to a temp file, then send it directly using the Gmail API
 
 #### Email 1: Full Briefing
 ```bash
-/Users/akshita/skills/skills/daily-briefing/scripts/venv/bin/python \
-    /Users/akshita/skills/skills/daily-briefing/scripts/send_email.py \
+./scripts/venv/bin/python \
+    ./scripts/send_email.py \
     --to "your-email@gmail.com" \
     --subject "Daily Briefing — [Date]" \
     --html /tmp/daily-briefing-YYYY-MM-DD-full.html
@@ -226,8 +232,8 @@ Save each email's HTML to a temp file, then send it directly using the Gmail API
 
 #### Email 2: HealthTech-Only Briefing
 ```bash
-/Users/akshita/skills/skills/daily-briefing/scripts/venv/bin/python \
-    /Users/akshita/skills/skills/daily-briefing/scripts/send_email.py \
+./scripts/venv/bin/python \
+    ./scripts/send_email.py \
     --to "teammate1@gmail.com, teammate2@gmail.com" \
     --subject "HealthTech Daily — [Date]" \
     --html /tmp/daily-briefing-YYYY-MM-DD-healthtech.html

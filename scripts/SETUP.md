@@ -43,7 +43,7 @@ One-time setup to enable the daily briefing skill to send emails directly (not j
 6. Click **Download JSON**
 7. Move/rename the downloaded file to:
    ```
-   /Users/akshita/skills/skills/daily-briefing/scripts/credentials.json
+   ./scripts/credentials.json
    ```
 
 ## Step 5: First-Time Authorization
@@ -51,8 +51,8 @@ One-time setup to enable the daily briefing skill to send emails directly (not j
 Run this test command in your terminal:
 
 ```bash
-/Users/akshita/skills/skills/daily-briefing/scripts/venv/bin/python \
-    /Users/akshita/skills/skills/daily-briefing/scripts/send_email.py \
+./scripts/venv/bin/python \
+    ./scripts/send_email.py \
     --to "your-email@gmail.com" \
     --subject "Test - Gmail API Send" \
     --body "This is a test email. If you see this, auto-send is working!"

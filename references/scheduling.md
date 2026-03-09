@@ -1,19 +1,12 @@
 # Scheduling the Daily Briefing
 
-## Option 1: Cron Job (Simpler)
+**Important:** Claude Code cannot discover custom skills when running headlessly (e.g., `claude -p "Run my /daily-briefing skill"` won't work). Use the wrapper script `scripts/run-briefing.sh` which reads `SKILL.md` and passes it directly as the prompt.
 
-Add this to your crontab (`crontab -e`):
+## Option 1: macOS LaunchAgent (Recommended)
 
-```cron
-# Run daily briefing at 7:00 AM every day
-0 7 * * * /usr/local/bin/claude -p "Run my /daily-briefing skill" --allowedTools "mcp__claude_ai_Gmail__*,WebSearch,Bash" 2>&1 >> ~/daily-briefing.log
-```
+LaunchAgent catches up on missed runs when your Mac wakes from sleep (cron does not).
 
-Adjust the path to `claude` based on your installation. Check with `which claude`.
-
-## Option 2: macOS LaunchAgent (More Reliable)
-
-Create a plist file at `~/Library/LaunchAgents/com.dailybriefing.plist`:
+Create `~/Library/LaunchAgents/com.dailybriefing.plist`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -24,11 +17,8 @@ Create a plist file at `~/Library/LaunchAgents/com.dailybriefing.plist`:
     <string>com.dailybriefing</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/local/bin/claude</string>
-        <string>-p</string>
-        <string>Run my /daily-briefing skill</string>
-        <string>--allowedTools</string>
-        <string>mcp__claude_ai_Gmail__*,WebSearch,Bash</string>
+        <string>/bin/bash</string>
+        <string>/path/to/daily-briefing-skill/scripts/run-briefing.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
@@ -44,11 +34,17 @@ Create a plist file at `~/Library/LaunchAgents/com.dailybriefing.plist`:
     <key>EnvironmentVariables</key>
     <dict>
         <key>PATH</key>
-        <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>HOME</key>
+        <string>/Users/your-username</string>
     </dict>
+    <key>WorkingDirectory</key>
+    <string>/Users/your-username</string>
 </dict>
 </plist>
 ```
+
+Replace `/path/to/daily-briefing-skill/` and `/Users/your-username` with your actual paths.
 
 Load it:
 ```bash
@@ -60,9 +56,22 @@ Unload it:
 launchctl unload ~/Library/LaunchAgents/com.dailybriefing.plist
 ```
 
+## Option 2: Cron Job
+
+Simpler but does NOT catch up on missed runs if your Mac was asleep.
+
+```bash
+crontab -e
+```
+
+Add:
+```cron
+0 7 * * * /bin/bash /path/to/daily-briefing-skill/scripts/run-briefing.sh 2>&1 >> /tmp/daily-briefing.log
+```
+
 ## Verifying
 
-Check if the agent is loaded:
+Check if the LaunchAgent is loaded:
 ```bash
 launchctl list | grep dailybriefing
 ```
